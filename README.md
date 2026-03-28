@@ -1,4 +1,6 @@
-# TextScribe OCR API
+# TextScribe OCR
+
+![TextScribe OCR Overview](A.png)
 
 TextScribe OCR API is a powerful optical character recognition (OCR) application powered by PaddleOCR and built on FastAPI. It processes images using a custom pipeline involving text type classification, image preprocessing, and robust OCR. It provides an intuitive Web GUI, RESTful endpoints, and seamless integration for extracting text from images.
 

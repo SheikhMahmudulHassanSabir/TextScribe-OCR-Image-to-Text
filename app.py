@@ -37,7 +37,8 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 @app.get("/")
 def read_root():
-    with open(os.path.join(html_dir, "index.html"), "r", encoding="utf-8") as f:
+    root_dir = os.path.dirname(__file__)
+    with open(os.path.join(root_dir, "index.html"), "r", encoding="utf-8") as f:
         return HTMLResponse(content=f.read())
 
 @app.get("/{filename}.html")

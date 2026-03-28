@@ -1,0 +1,2 @@
+// Dummy JS
+console.log("Main JS loaded");

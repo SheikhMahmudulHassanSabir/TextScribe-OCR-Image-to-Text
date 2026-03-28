@@ -22,11 +22,11 @@ logger = logging.getLogger(__name__)
 
 # Import configuration
 try:
-    from config import config  # type: ignore
+    from .config import config  # type: ignore
 except ImportError:
     config = {}
 
-from preprocessing import (  # type: ignore
+from .preprocessing import (  # type: ignore
     resize_image, to_grayscale, denoise_image, apply_clahe, 
     adaptive_threshold, deskew_image
 )
@@ -36,9 +36,9 @@ import paddle  # type: ignore
 
 # Custom CRNN Imports (Local handwriting model)
 try:
-    from model.crnn import CRNN  # type: ignore
-    from ctc.ctc_decoder import CTCDecoder  # type: ignore
-    from utils.charset import get_default_charset  # type: ignore
+    from .model.crnn import CRNN  # type: ignore
+    from .ctc.ctc_decoder import CTCDecoder  # type: ignore
+    from .utils.charset import get_default_charset  # type: ignore
     CUSTOM_MODEL_AVAILABLE = True
 except ImportError as e:
     logger.warning(f"Custom handwriting model components missing or misconfigured: {e}")

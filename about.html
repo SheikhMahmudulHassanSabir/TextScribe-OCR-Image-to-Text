@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="TextScribe is a fast, privacy-focused optical character recognition engine that runs entirely in your browser using Tesseract.js.">
+    <title>About - TextScribe OCR</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/logo.png" alt="TextScribe OCR Logo" class="nav-logo-img">
+            </a>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link ">
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="upload.html" class="nav-link ">
+                        Upload
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link active">
+                        About
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- About Hero -->
+        <section class="about-hero">
+            <div class="container">
+                <div class="about-hero-content">
+                    <span class="section-tag">About Project</span>
+                    <h1 class="about-hero-title">About TextScribe OCR</h1>
+                    <p class="about-hero-description">
+                        TextScribe is an advanced, 100% static OCR engine originally conceived as a deep learning backend, now optimized for the browser using Tesseract.js to ensure complete data privacy.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Overview -->
+        <section class="project-overview">
+            <div class="container">
+                <div class="overview-grid">
+                    <div class="overview-content">
+                        <h2>Project Overview</h2>
+                        <p>
+                            TextScribe implements a complete offline handwriting recognition system using Tesseract.js. By operating entirely on the client side, it eliminates the need for RESTful endpoints or backend servers, providing highly accurate, secure text extraction straight from a responsive web dashboard.
+                        </p>
+                        <p>
+                            Originally conceived as an AI deep learning backend using PaddleOCR and FastAPI, the system has been refactored to run directly in the browser via WebAssembly. This ensures that sensitive documents are never uploaded to remote servers.
+                        </p>
+
+                        <h3>Key Features</h3>
+                        <ul class="feature-list">
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                Client-side offline functionality
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                Privacy-first data processing
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                Drag-and-drop web interface
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                Automatic progress streaming
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                Export directly to .txt
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="overview-stats">
+                        <div class="stat-card">
+                            <span class="stat-number">WASM</span>
+                            <span class="stat-label">Architecture</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">Languages Supported</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">0</span>
+                            <span class="stat-label">Server Pings</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack Section -->
+        <section class="tech-stack-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Technology</span>
+                    <h2 class="section-title">Tech Stack</h2>
+                    <p class="section-description">
+                        Built with modern open-source web technologies for optimal performance
+                    </p>
+                </div>
+
+                <div class="tech-categories">
+                    <div class="tech-category">
+                        <h4>AI Engine</h4>
+                        <div class="tech-items">
+                            <div class="tech-item">
+                                <span class="tech-name">Tesseract.js</span>
+                                <span class="tech-desc">Client-side OCR library</span>
+                            </div>
+                            <div class="tech-item">
+                                <span class="tech-name">WebAssembly</span>
+                                <span class="tech-desc">Core C++ wrapper</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tech-category">
+                        <h4>Frontend UI</h4>
+                        <div class="tech-items">
+                            <div class="tech-item">
+                                <span class="tech-name">HTML5</span>
+                                <span class="tech-desc">Markup structure</span>
+                            </div>
+                            <div class="tech-item">
+                                <span class="tech-name">CSS3</span>
+                                <span class="tech-desc">Responsive styling</span>
+                            </div>
+                            <div class="tech-item">
+                                <span class="tech-name">Vanilla JS</span>
+                                <span class="tech-desc">DOM manipulation</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tech-category">
+                        <h4>Web APIs</h4>
+                        <div class="tech-items">
+                            <div class="tech-item">
+                                <span class="tech-name">Web Workers</span>
+                                <span class="tech-desc">Multi-threading OCR</span>
+                            </div>
+                            <div class="tech-item">
+                                <span class="tech-name">FileReader</span>
+                                <span class="tech-desc">Local file access</span>
+                            </div>
+                            <div class="tech-item">
+                                <span class="tech-name">Clipboard API</span>
+                                <span class="tech-desc">Quick text copying</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workflow Section -->
+        <section class="workflow-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Workflow</span>
+                    <h2 class="section-title">System Workflow</h2>
+                </div>
+
+                <div class="workflow-diagram">
+                    <div class="workflow-step">
+                        <div class="step-badge">1</div>
+                        <h4>Image Upload</h4>
+                        <p>User uploads image locally into browser memory</p>
+                    </div>
+
+                    <div class="workflow-connector"></div>
+
+                    <div class="workflow-step">
+                        <div class="step-badge">2</div>
+                        <h4>Engine Init</h4>
+                        <p>Initialize Tesseract worker via WebAssembly</p>
+                    </div>
+
+                    <div class="workflow-connector"></div>
+
+                    <div class="workflow-step">
+                        <div class="step-badge">3</div>
+                        <h4>Recognition</h4>
+                        <p>Optical Character Recognition parses image contents</p>
+                    </div>
+
+                    <div class="workflow-connector"></div>
+
+                    <div class="workflow-step">
+                        <div class="step-badge">4</div>
+                        <h4>Result Display</h4>
+                        <p>Text output is formatted and rendered cleanly</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Folder Structure -->
+        <section class="folder-structure-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Structure</span>
+                    <h2 class="section-title">Project Structure</h2>
+                </div>
+
+                <div class="code-block">
+                    <pre class="small-code-block"><code>handwriting-recognition/
+├── index.html             # Landing page
+├── upload.html            # OCR Workspace interface
+├── about.html             # Documentation and information
+├── 404.html               # Standard error page
+│
+├── css/                   # Stylesheet definitions
+│   └── style.css          # Main UI components & typography
+│
+├── js/                    # Client-side behavioral scripts
+│   ├── main.js            # Common utilities (notifications, UI)
+│   └── upload.js          # Core integration logic with Tesseract.js
+│
+├── assets/                # Static images and icons
+└── README.md              # Deployment guide</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Developers Section -->
+        <section class="developers-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Team</span>
+                    <h2 class="section-title">Project Information</h2>
+                </div>
+
+                <div class="info-cards">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                            </svg>
+                        </div>
+                        <h4>Academic Project</h4>
+                        <p>Developed as part of a college coursework focusing on accessible client-side applications.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="2" y1="12" x2="22" y2="12" />
+                                <path
+                                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                            </svg>
+                        </div>
+                        <h4>Open Source</h4>
+                        <p>Feel free to use, modify, and extend this project for your own learning.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                            </svg>
+                        </div>
+                        <h4>Documentation</h4>
+                        <p>Well-commented code with detailed explanations for educational purposes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="assets/logo.png" alt="TextScribe OCR Logo" class="footer-logo-img">
+                    <p>TextScribe is a fast, privacy-focused OCR engine that runs entirely in your browser using Tesseract.js.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="upload.html">Upload Image</a></li>
+                        <li><a href="about.html">About Project</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Technology</h4>
+                    <ul>
+                        <li>HTML5 & CSS3</li>
+                        <li>Vanilla JavaScript</li>
+                        <li>Tesseract.js (Client-Side)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 TextScribe OCR. Academic Project. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container for Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Processing your image...</p>
+        </div>
+    </div>
+
+    <!-- Common JavaScript -->
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

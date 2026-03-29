@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Offline Handwriting Recognition System - Convert handwritten text to digital text using Deep Learning">
+    <title>Upload - Handwriting Recognition</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/logo.png" alt="TextScribe OCR Logo"
+                    class="nav-logo-img">
+            </a>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="index.html"
+                        class="nav-link ">
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="upload.html"
+                        class="nav-link active">
+                        Upload
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html"
+                        class="nav-link ">
+                        About
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        
+<!-- Upload Section -->
+<section class="upload-section">
+    <div class="container">
+        <div class="upload-header">
+            <span class="section-tag">Upload</span>
+            <h1 class="section-title">Convert Handwritten Text</h1>
+            <p class="section-description">
+                Upload an image containing handwritten text and our AI will convert it to digital text
+            </p>
+        </div>
+        
+        <div class="upload-container">
+            <!-- Upload Area -->
+            <div class="upload-area" id="uploadArea">
+                <input type="file" id="fileInput" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff" hidden>
+                
+                <div class="upload-placeholder" id="uploadPlaceholder">
+                    <div class="upload-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                    </div>
+                    <h3 class="upload-title">Drop your image here</h3>
+                    <p class="upload-subtitle">or click to browse files</p>
+                    <div class="upload-formats">
+                        <span class="format-tag">JPG</span>
+                        <span class="format-tag">PNG</span>
+                        <span class="format-tag">GIF</span>
+                        <span class="format-tag">BMP</span>
+                    </div>
+                    <p class="upload-limit">Maximum file size: 16MB</p>
+                </div>
+                
+                <!-- Image Preview -->
+                <div class="image-preview" id="imagePreview" style="display: none;">
+                    <img src="" alt="Preview" id="previewImage">
+                    <button class="preview-remove" id="removeImage" title="Remove image">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"/>
+                            <line x1="6" y1="6" x2="18" y2="18"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Upload Actions -->
+            <div class="upload-actions" id="uploadActions">
+                <button class="btn btn-primary btn-lg" id="convertBtn" disabled>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                    </svg>
+                    Convert to Text
+                </button>
+                <button class="btn btn-outline" id="clearBtn" disabled>
+                    Clear
+                </button>
+            </div>
+        </div>
+        
+        <!-- Result Section -->
+        <div class="result-section" id="resultSection" style="display: none;">
+            <div class="result-card">
+                <div class="result-header">
+                    <h3 class="result-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        Recognized Text
+                    </h3>
+                    <div class="result-meta">
+                        <span class="confidence-badge" id="confidenceBadge">
+                            Confidence: <strong id="confidenceValue">--</strong>
+                        </span>
+                        <span class="time-badge" id="timeBadge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                            <span id="timeValue">--</span> ms
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="result-body">
+                    <textarea class="result-text" id="resultText" readonly placeholder="Recognized text will appear here..."></textarea>
+                </div>
+                
+                <div class="result-actions">
+                    <button class="btn btn-primary" id="copyBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                        </svg>
+                        Copy Text
+                    </button>
+                    <button class="btn btn-outline" id="downloadBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Download .txt
+                    </button>
+                    <button class="btn btn-outline" id="newUploadBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                            <path d="M23 4v6h-6"/>
+                            <path d="M1 20v-6h6"/>
+                            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+                        </svg>
+                        Upload New
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tips Section -->
+        <div class="tips-section">
+            <h3 class="tips-title">Tips for Best Results</h3>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon tip-good">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                    </div>
+                    <p>Use clear, well-lit images</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon tip-good">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                    </div>
+                    <p>Ensure text is horizontal</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon tip-good">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                    </div>
+                    <p>Avoid blurry or distorted text</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon tip-bad">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"/>
+                            <line x1="6" y1="6" x2="18" y2="18"/>
+                        </svg>
+                    </div>
+                    <p>Avoid complex backgrounds</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="assets/logo.png" alt="TextScribe OCR Logo"
+                        class="footer-logo-img">
+                    <p>Offline handwriting recognition using deep learning. Convert handwritten text to digital text
+                        instantly.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="upload.html">Upload Image</a></li>
+                        <li><a href="about.html">About Project</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Technology</h4>
+                    <ul>
+                        <li>PaddleOCR & Deep Learning</li>
+                        <li>OpenCV</li>
+                        <li>Tesseract.js (Client-Side)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 TextScribe OCR. Academic Project. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container for Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Processing your image...</p>
+        </div>
+    </div>
+
+    <!-- Common JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+    <script src="js/upload.js?v=2"></script>
+
+</body>
+
+</html>
